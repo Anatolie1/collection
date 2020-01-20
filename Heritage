@@ -1,0 +1,136 @@
+using System;
+
+namespace classification
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Humain humain = new Humain("Homosapiens");
+            humain.Inteligence();
+            humain.Move();
+            humain.Eat();
+
+            Monkey monkey = new Monkey("Gorilla");
+            monkey.Habitat();
+            monkey.Move();
+            monkey.Eat();
+
+            Elephant elephant = new Elephant("Elephant");
+            elephant.Show();
+            elephant.Move();
+            elephant.Eat();
+            
+
+            Tortoise tortoise = new Tortoise("Tortoise");
+            tortoise.Swim();
+            tortoise.Move();
+            tortoise.Eat();
+            
+
+            Lezard lezard = new Lezard("Lezard");
+            lezard.LeaveTail();
+            lezard.Move();
+            lezard.Eat();
+            
+        }
+    }
+    public abstract class Animals
+    {
+        protected string _name;
+        protected int _legs;
+        protected bool _hairy;
+        public Animals(string name, int legs, bool hairy)
+        {
+            _name = name;
+            _legs = legs;
+            _hairy = hairy;
+        }
+        public virtual void Move()
+        {
+            Console.WriteLine("{0} moves on foot {1} ", _name, _legs);
+        }
+        public virtual void Eat()
+        {
+            Console.WriteLine("{0} eats almost everything", _name);
+        }
+        public string GetName()
+        {
+            return _name;
+        }
+    }
+    class Humain : Animals
+    {
+        public Humain(string name) : base(name, 2, true)
+        {
+            Console.WriteLine("{0} biologiclly is animal which has {1} legs and hairy({2})", _name, _legs, _hairy);
+        }
+        public void Inteligence()
+        {
+            Console.WriteLine("{0} is the worst species in the world", _name);
+        }
+
+    }
+    class Monkey : Animals
+    {
+        public Monkey(string name) : base(name, 2, true)
+        {
+            Console.WriteLine("{0} is very close to humain species, which has more hairy({2}) and sometimes moves on {1} members", _name, _legs, _hairy);
+        }
+        public void Habitat()
+        {
+            Console.WriteLine("{0} is still living in the forest",_name);
+        }
+    }
+
+    public class Fourlegs : Animals
+    {
+         public Fourlegs(string name) : base(name, 4, false)
+        { }
+         public override void Move()
+        {
+            Console.WriteLine("{0} moves on {1} legs ", _name, _legs);
+        }
+        public override void Eat()
+        {
+            Console.WriteLine("{0} eats leaves, vegetables, grass ", _name);
+        }
+        public string GetName()
+        {
+            return _name;
+        }
+    }
+    class Elephant : Fourlegs
+    {
+        public Elephant(string name): base(name)
+        {
+            Console.WriteLine("{0} moves on {1} legs and which has hairy ({2})", _name, _legs, _hairy);
+        }
+        public void Show()
+        {
+            Console.WriteLine("{0} is sometimes employed in Circus show", _name);
+        }
+    }
+    class Tortoise : Fourlegs
+    {
+        public Tortoise(string name) : base(name)
+        {
+            Console.WriteLine("{0} moves slowly on its {1} legs and which has hairy ({2}) ", _name, _legs, _hairy);
+        }
+        public void Swim()
+        {
+            Console.WriteLine("{0} swims very well", _name);
+        }
+    }
+    class Lezard : Fourlegs
+    {
+        public Lezard(string name) : base(name)
+        {
+            Console.WriteLine("{0} moves on  {1} legs in function of ambient temperature and change the skin every year", _name, _legs);
+        }
+        public void LeaveTail()
+        {
+            Console.WriteLine("{0} leaves the tail when you touch it", _name);
+        }
+    }
+}
