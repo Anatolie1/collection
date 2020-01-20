@@ -1,0 +1,22 @@
+using System;
+using System.Collections.Generic;
+
+namespace list
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> chainChar = new List<string> { "aga", "haha", "dodo"};
+            chainChar.RemoveAt(0);
+            chainChar.Remove("dodo");
+            chainChar[0] = "sasu";
+            
+            foreach (string i in chainChar)
+            {
+                Console.Write(i + "    ");
+            }
+
+        }
+    }
+}
