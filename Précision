@@ -1,0 +1,58 @@
+using System;
+
+namespace Precision
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(" Give the number of floors : ");
+            int floors = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(" Give the size of the building : ");
+            double size = Convert.ToDouble(Console.ReadLine());
+
+            Building building = new Building(floors, size);
+            Console.WriteLine("The size of the building is : {0}", building.GetSize());
+            Console.WriteLine("Number of floors is : {0}", building.GetFloorCount());
+            Console.WriteLine("The floor height is : {0}", building.GetFloorMaxSize());
+
+            Console.WriteLine("If you give only number of floors");
+            Building building1 = new Building(floors);
+            Console.WriteLine("The size of the building should be : {0}", building1.GetSize());
+            Console.WriteLine("Number of floors is : {0}", building1.GetFloorCount());
+            Console.WriteLine("The floor height is : {0}", building1.GetFloorMaxSize());
+
+        }
+    }
+
+    public class Building
+    { 
+        private int _floors;
+        private double _size;
+
+        public Building(int floors, double size)
+        {
+            _floors = floors;
+            _size = size;
+        }
+
+        public Building(int floors)
+        {
+            _floors = floors;
+            _size = floors * 3;
+        }
+
+        public double GetFloorMaxSize()
+        {
+            return _size/ _floors;
+        }
+        public int GetFloorCount()
+        {
+            return _floors;
+        }
+        public double GetSize()
+        {
+            return _size;
+        }
+    }
+}
