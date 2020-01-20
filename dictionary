@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+
+namespace Dictionary
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Dictionary<char, string> dict = new Dictionary<char, string>();
+            dict.Add('a', "abcdefg");
+            dict.Add('b', "boygues");
+            dict.Add('c', "coller");
+            dict.Remove('c');
+            int count = dict.Count;
+
+            foreach (KeyValuePair<char, string> item in dict)
+            {
+                Console.WriteLine("Lettre '{0}' contient le mot '{1}' ", item.Key, item.Value);
+            }
+        }
+    }
+}
